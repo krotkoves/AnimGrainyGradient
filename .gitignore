@@ -1,0 +1,67 @@
+# Xcode
+.DS_Store
+build/
+DerivedData/
+*.xcuserstate
+*.xcuserdatad
+xcuserdata/
+*.xccheckout
+*.xcscmblueprint
+*.xcworkspace
+!default.xcworkspace
+
+# XcodeGen
+# project.yml
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Swift Package Manager
+.swiftpm/
+Package.resolved
+
+# Carthage
+Carthage/Build/
+Carthage/Checkouts/
+
+# Code signing
+*.mobileprovision
+*.entitlements
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Build results
+[Bb]uild/
+[Oo]bj/
+[Cc]ode[S]ign[Ll]ogs/
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+fastlane/readme.md
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Xcode private settings
+*.xcode.env.local
