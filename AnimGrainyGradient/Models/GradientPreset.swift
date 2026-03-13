@@ -742,6 +742,7 @@ enum GradientPreset: String, CaseIterable, Identifiable {
     
     var icon: String {
         switch self {
+        case .serendipity: return "sparkles"
         case .aurora: return "sparkles"
         case .sunset: return "sun.horizon.fill"
         case .ocean: return "water.waves"
@@ -766,6 +767,7 @@ enum GradientPreset: String, CaseIterable, Identifiable {
     
     var previewColors: [Color] {
         switch self {
+        case .serendipity: return [Color(red: 0.75, green: 0.78, blue: 0.95), Color(red: 0.65, green: 0.70, blue: 0.90)]
         case .aurora: return [Color(red: 0.1, green: 0.9, blue: 0.6), Color(red: 0.6, green: 0.2, blue: 0.8)]
         case .sunset: return [Color(red: 1.0, green: 0.4, blue: 0.2), Color(red: 0.4, green: 0.1, blue: 0.5)]
         case .ocean: return [Color(red: 0.0, green: 0.4, blue: 0.8), Color(red: 0.2, green: 0.7, blue: 0.9)]
