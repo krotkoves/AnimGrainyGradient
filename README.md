@@ -19,7 +19,7 @@ Animated grainy gradient backgrounds with smooth flowing blobs rendered via Meta
 * [ ] **Noise Types** - Multiple noise algorithms (Perlin, Simplex, Worley)
 * [ ] **Color Temperature** - Warm/cool color temperature adjustment
 
-## Screenshots
+## Screenshots (don't mind the battery)
 
 <div style="display: flex; flex-wrap: wrap; gap: 8px;">
   <img src="Images/serendipity.png" width="200">
@@ -29,6 +29,7 @@ Animated grainy gradient backgrounds with smooth flowing blobs rendered via Meta
   <img src="Images/sky.png" width="200">
   <img src="Images/honey.png" width="200">
   <img src="Images/purple-haze.png" width="200">
+  <img src="Images/lime.png" width="200">
 </div>
 
 ## Quick Usage
