@@ -80,7 +80,7 @@ enum GradientPreset: String, CaseIterable, Identifiable {
                 noiseOctaves: 5,
                 flowDistortion: 0.100,
                 liquidEffect: 1.5,
-                enableGrain: false,
+                enableStatic: false,
                 transitionSpeed: 5
             )
             
@@ -130,7 +130,7 @@ enum GradientPreset: String, CaseIterable, Identifiable {
                 noiseOctaves: 4,
                 flowDistortion: 0.03,
                 liquidEffect: 0.7,
-                enableGrain: true,
+                enableStatic: true,
                 transitionSpeed: 1.0
             )
             
@@ -180,7 +180,7 @@ enum GradientPreset: String, CaseIterable, Identifiable {
                 noiseOctaves: 4,
                 flowDistortion: 0.02,
                 liquidEffect: 0.5,
-                enableGrain: true,
+                enableStatic: true,
                 transitionSpeed: 1.0
             )
             
@@ -231,7 +231,7 @@ enum GradientPreset: String, CaseIterable, Identifiable {
                 noiseOctaves: 5,
                 flowDistortion: 0.025,
                 liquidEffect: 0.8,
-                enableGrain: true,
+                enableStatic: true,
                 transitionSpeed: 1.0
             )
             
@@ -281,7 +281,7 @@ enum GradientPreset: String, CaseIterable, Identifiable {
                 noiseOctaves: 4,
                 flowDistortion: 0.015,
                 liquidEffect: 0.5,
-                enableGrain: true,
+                enableStatic: true,
                 transitionSpeed: 1.0
             )
             
@@ -368,7 +368,7 @@ enum GradientPreset: String, CaseIterable, Identifiable {
                 noiseOctaves: 3,
                 flowDistortion: 0.01,
                 liquidEffect: 0.4,
-                enableGrain: true,
+                enableStatic: true,
                 transitionSpeed: 1.0
             )
             
@@ -422,7 +422,7 @@ enum GradientPreset: String, CaseIterable, Identifiable {
                 noiseOctaves: 5,
                 flowDistortion: 0.02,
                 liquidEffect: 0.6,
-                enableGrain: true,
+                enableStatic: true,
                 transitionSpeed: 1.0
             )
             
@@ -468,7 +468,7 @@ enum GradientPreset: String, CaseIterable, Identifiable {
                 noiseOctaves: 3,
                 flowDistortion: 0.01,
                 liquidEffect: 0.4,
-                enableGrain: true,
+                enableStatic: true,
                 transitionSpeed: 1.0
             )
             
@@ -523,7 +523,7 @@ enum GradientPreset: String, CaseIterable, Identifiable {
                 noiseOctaves: 5,
                 flowDistortion: 0.02,
                 liquidEffect: 0.6,
-                enableGrain: true,
+                enableStatic: true,
                 transitionSpeed: 1.0
             )
             
@@ -544,7 +544,7 @@ enum GradientPreset: String, CaseIterable, Identifiable {
                 noiseOctaves: 4,
                 flowDistortion: 0.015,
                 liquidEffect: 0.5,
-                enableGrain: false,
+                enableStatic: false,
                 transitionSpeed: 1.0
             )
             
@@ -565,7 +565,7 @@ enum GradientPreset: String, CaseIterable, Identifiable {
                 noiseOctaves: 4,
                 flowDistortion: 0.01,
                 liquidEffect: 0.4,
-                enableGrain: false,
+                enableStatic: false,
                 transitionSpeed: 1.0
             )
             
@@ -586,7 +586,7 @@ enum GradientPreset: String, CaseIterable, Identifiable {
                 noiseOctaves: 3,
                 flowDistortion: 0.01,
                 liquidEffect: 0.4,
-                enableGrain: false,
+                enableStatic: false,
                 transitionSpeed: 1.0
             )
             
@@ -607,7 +607,7 @@ enum GradientPreset: String, CaseIterable, Identifiable {
                 noiseOctaves: 4,
                 flowDistortion: 0.012,
                 liquidEffect: 0.5,
-                enableGrain: false,
+                enableStatic: false,
                 transitionSpeed: 1.0
             )
             
@@ -628,7 +628,7 @@ enum GradientPreset: String, CaseIterable, Identifiable {
                 noiseOctaves: 4,
                 flowDistortion: 0.015,
                 liquidEffect: 0.5,
-                enableGrain: false,
+                enableStatic: false,
                 transitionSpeed: 1.0
             )
             
@@ -649,7 +649,7 @@ enum GradientPreset: String, CaseIterable, Identifiable {
                 noiseOctaves: 3,
                 flowDistortion: 0.01,
                 liquidEffect: 0.4,
-                enableGrain: false,
+                enableStatic: false,
                 transitionSpeed: 1.0
             )
             
@@ -670,7 +670,7 @@ enum GradientPreset: String, CaseIterable, Identifiable {
                 noiseOctaves: 4,
                 flowDistortion: 0.02,
                 liquidEffect: 0.6,
-                enableGrain: false,
+                enableStatic: false,
                 transitionSpeed: 1.0
             )
             
@@ -691,7 +691,7 @@ enum GradientPreset: String, CaseIterable, Identifiable {
                 noiseOctaves: 4,
                 flowDistortion: 0.018,
                 liquidEffect: 0.55,
-                enableGrain: false,
+                enableStatic: false,
                 transitionSpeed: 1.0
             )
             
@@ -713,7 +713,7 @@ enum GradientPreset: String, CaseIterable, Identifiable {
                 noiseOctaves: 3,
                 flowDistortion: 0.012,
                 liquidEffect: 0.45,
-                enableGrain: false,
+                enableStatic: false,
                 transitionSpeed: 1.0
             )
             
@@ -734,7 +734,7 @@ enum GradientPreset: String, CaseIterable, Identifiable {
                 noiseOctaves: 5,
                 flowDistortion: 0.015,
                 liquidEffect: 0.5,
-                enableGrain: false,
+                enableStatic: false,
                 transitionSpeed: 1.0
             )
         }
@@ -742,7 +742,6 @@ enum GradientPreset: String, CaseIterable, Identifiable {
     
     var icon: String {
         switch self {
-        case .mindApp: return "brain.head.profile"
         case .aurora: return "sparkles"
         case .sunset: return "sun.horizon.fill"
         case .ocean: return "water.waves"
@@ -767,7 +766,6 @@ enum GradientPreset: String, CaseIterable, Identifiable {
     
     var previewColors: [Color] {
         switch self {
-        case .mindApp: return [Color(red: 0.85, green: 0.88, blue: 0.95), Color(red: 0.90, green: 0.87, blue: 0.92)]
         case .aurora: return [Color(red: 0.1, green: 0.9, blue: 0.6), Color(red: 0.6, green: 0.2, blue: 0.8)]
         case .sunset: return [Color(red: 1.0, green: 0.4, blue: 0.2), Color(red: 0.4, green: 0.1, blue: 0.5)]
         case .ocean: return [Color(red: 0.0, green: 0.4, blue: 0.8), Color(red: 0.2, green: 0.7, blue: 0.9)]
