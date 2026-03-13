@@ -21,13 +21,15 @@ Animated grainy gradient backgrounds with smooth flowing blobs rendered via Meta
 
 ## Screenshots
 
-<img src="Images/serendipity.png" width="200">
-<img src="Images/midnight.png" width="200">
-<img src="Images/berry.png" width="200">
-<img src="Images/peach.png" width="200">
-<img src="Images/sky.png" width="200">
-<img src="Images/honey.png" width="200">
-<img src="Images/purple-haze.png" width="200">
+<div style="display: flex; flex-wrap: wrap; gap: 8px;">
+  <img src="Images/serendipity.png" width="200">
+  <img src="Images/midnight.png" width="200">
+  <img src="Images/berry.png" width="200">
+  <img src="Images/peach.png" width="200">
+  <img src="Images/sky.png" width="200">
+  <img src="Images/honey.png" width="200">
+  <img src="Images/purple-haze.png" width="200">
+</div>
 
 ## Quick Usage
 
