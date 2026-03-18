@@ -4,6 +4,7 @@ import simd
 
 final class GradientSettings: ObservableObject {
     @Published var selectedPreset: GradientPreset = .serendipity
+    @Published var selectedTheme: AppTheme = .auto
     @Published var grainIntensity: Float = 0.03
     @Published var animationSpeed: Float = 0.8
     @Published var liquidEffect: Float = 0.6

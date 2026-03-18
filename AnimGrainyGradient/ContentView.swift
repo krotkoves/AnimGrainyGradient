@@ -2,11 +2,31 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var settings = GradientSettings()
+    @Environment(\.colorScheme) private var colorScheme
     
     private var currentConfiguration: GradientConfiguration {
-        var config = settings.selectedPreset.configuration
+        var config: GradientConfiguration
+        let isDark = effectiveIsDark
+        
+        if isDark {
+            config = settings.selectedPreset.darkConfiguration
+        } else {
+            config = settings.selectedPreset.configuration
+        }
+        
         settings.applyToConfiguration(&config)
         return config
+    }
+    
+    private var effectiveIsDark: Bool {
+        switch settings.selectedTheme {
+        case .auto:
+            return colorScheme == .dark
+        case .light:
+            return false
+        case .dark:
+            return true
+        }
     }
     
     var body: some View {

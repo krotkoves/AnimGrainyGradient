@@ -12,7 +12,7 @@ Animated grainy gradient backgrounds with smooth flowing blobs rendered via Meta
 
 ## Planned Features
 
-* [ ] **Dynamic Dark Theme** - Auto-detect system appearance and adapt gradient colors
+* [x] ~**Dynamic Dark Theme** - Auto-detect system appearance and adapt gradient colors~
 * [ ] **View Transitions** - Smooth crossfade between gradient or view changes
 * [ ] **Appear Animations** - Fade-in, scale, blob coming out of screen animations on view appear
 * [ ] **Interactive Gestures** - Blobs respond to touch/mouse interactions

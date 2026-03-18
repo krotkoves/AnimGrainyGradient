@@ -1,5 +1,21 @@
 import SwiftUI
 
+enum AppTheme: String, CaseIterable, Identifiable {
+    case auto = "Auto"
+    case light = "Light"
+    case dark = "Dark"
+    
+    var id: String { rawValue }
+    
+    var icon: String {
+        switch self {
+        case .auto: return "circle.lefthalf.filled"
+        case .light: return "sun.max.fill"
+        case .dark: return "moon.fill"
+        }
+    }
+}
+
 enum GradientPreset: String, CaseIterable, Identifiable {
     case serendipity = "Serendipity"
     case aurora = "Aurora"
@@ -762,6 +778,220 @@ enum GradientPreset: String, CaseIterable, Identifiable {
         case .purpleHaze: return "smoke.fill"
         case .sunrise: return "sun.and.horizon.fill"
         case .denim: return "rectangle.portrait.fill"
+        }
+    }
+    
+    var darkConfiguration: GradientConfiguration {
+        switch self {
+        case .serendipity:
+            return GradientConfiguration(
+                blobs: [
+                    GradientBlob(r: 0.5, g: 0.55, b: 0.75, a: 0.9, position: SIMD2<Float>(0.3, 0.3), radius: 0.55, speed: 0.3, phase: 0.0, orbitRadius: SIMD2<Float>(0.15, 0.12)),
+                    GradientBlob(r: 0.4, g: 0.45, b: 0.65, a: 0.85, position: SIMD2<Float>(0.7, 0.4), radius: 0.5, speed: 0.25, phase: 1.5, orbitRadius: SIMD2<Float>(0.18, 0.14)),
+                    GradientBlob(r: 0.55, g: 0.52, b: 0.72, a: 0.8, position: SIMD2<Float>(0.5, 0.7), radius: 0.45, speed: 0.35, phase: 3.0, orbitRadius: SIMD2<Float>(0.12, 0.16)),
+                    GradientBlob(r: 0.45, g: 0.47, b: 0.68, a: 0.75, position: SIMD2<Float>(0.2, 0.6), radius: 0.4, speed: 0.2, phase: 4.5, orbitRadius: SIMD2<Float>(0.10, 0.10)),
+                    GradientBlob(r: 0.52, g: 0.55, b: 0.74, a: 0.7, position: SIMD2<Float>(0.8, 0.7), radius: 0.35, speed: 0.28, phase: 2.0, orbitRadius: SIMD2<Float>(0.14, 0.18)),
+                ],
+                backgroundColor: Color(red: 0.08, green: 0.08, blue: 0.12),
+                grainIntensity: 0.12, grainScale: 1.5, animationSpeed: 4, blurRadius: 0.7, saturation: 0.9, brightness: 1.1, noiseOctaves: 5, flowDistortion: 0.1, liquidEffect: 1.5, enableStatic: false, transitionSpeed: 5
+            )
+        case .aurora:
+            return GradientConfiguration(
+                blobs: [
+                    GradientBlob(r: 0.15, g: 0.65, b: 0.45, a: 0.85, position: SIMD2<Float>(0.3, 0.2), radius: 0.5, speed: 0.4, phase: 0.0, orbitRadius: SIMD2<Float>(0.2, 0.15)),
+                    GradientBlob(r: 0.25, g: 0.4, b: 0.7, a: 0.75, position: SIMD2<Float>(0.6, 0.5), radius: 0.45, speed: 0.35, phase: 2.0, orbitRadius: SIMD2<Float>(0.15, 0.2)),
+                    GradientBlob(r: 0.5, g: 0.25, b: 0.65, a: 0.65, position: SIMD2<Float>(0.5, 0.8), radius: 0.4, speed: 0.3, phase: 4.0, orbitRadius: SIMD2<Float>(0.18, 0.12)),
+                    GradientBlob(r: 0.15, g: 0.55, b: 0.65, a: 0.55, position: SIMD2<Float>(0.8, 0.3), radius: 0.35, speed: 0.45, phase: 1.0, orbitRadius: SIMD2<Float>(0.12, 0.18)),
+                ],
+                backgroundColor: Color(red: 0.03, green: 0.05, blue: 0.1),
+                grainIntensity: 0.1, grainScale: 1.2, animationSpeed: 0.6, blurRadius: 0.3, saturation: 1.1, brightness: 1.15, noiseOctaves: 4, flowDistortion: 0.03, liquidEffect: 0.7, enableStatic: true, transitionSpeed: 1.0
+            )
+        case .sunset:
+            return GradientConfiguration(
+                blobs: [
+                    GradientBlob(r: 0.85, g: 0.35, b: 0.2, a: 0.9, position: SIMD2<Float>(0.3, 0.3), radius: 0.5, speed: 0.3, phase: 0.0, orbitRadius: SIMD2<Float>(0.15, 0.1)),
+                    GradientBlob(r: 0.9, g: 0.5, b: 0.3, a: 0.8, position: SIMD2<Float>(0.6, 0.4), radius: 0.45, speed: 0.25, phase: 1.5, orbitRadius: SIMD2<Float>(0.12, 0.15)),
+                    GradientBlob(r: 0.75, g: 0.2, b: 0.35, a: 0.7, position: SIMD2<Float>(0.5, 0.7), radius: 0.5, speed: 0.35, phase: 3.0, orbitRadius: SIMD2<Float>(0.18, 0.14)),
+                    GradientBlob(r: 0.5, g: 0.15, b: 0.4, a: 0.6, position: SIMD2<Float>(0.7, 0.8), radius: 0.4, speed: 0.2, phase: 4.5, orbitRadius: SIMD2<Float>(0.10, 0.12)),
+                ],
+                backgroundColor: Color(red: 0.1, green: 0.03, blue: 0.06),
+                grainIntensity: 0.08, grainScale: 1.0, animationSpeed: 0.5, blurRadius: 0.25, saturation: 1.2, brightness: 1.15, noiseOctaves: 4, flowDistortion: 0.02, liquidEffect: 0.5, enableStatic: true, transitionSpeed: 1.0
+            )
+        case .ocean:
+            return GradientConfiguration(
+                blobs: [
+                    GradientBlob(r: 0.05, g: 0.35, b: 0.65, a: 0.9, position: SIMD2<Float>(0.3, 0.3), radius: 0.55, speed: 0.25, phase: 0.0, orbitRadius: SIMD2<Float>(0.2, 0.15)),
+                    GradientBlob(r: 0.1, g: 0.5, b: 0.6, a: 0.8, position: SIMD2<Float>(0.7, 0.4), radius: 0.45, speed: 0.3, phase: 2.0, orbitRadius: SIMD2<Float>(0.15, 0.2)),
+                    GradientBlob(r: 0.15, g: 0.3, b: 0.55, a: 0.7, position: SIMD2<Float>(0.5, 0.7), radius: 0.5, speed: 0.2, phase: 4.0, orbitRadius: SIMD2<Float>(0.18, 0.12)),
+                    GradientBlob(r: 0.2, g: 0.55, b: 0.75, a: 0.55, position: SIMD2<Float>(0.2, 0.6), radius: 0.35, speed: 0.35, phase: 1.0, orbitRadius: SIMD2<Float>(0.12, 0.16)),
+                ],
+                backgroundColor: Color(red: 0.02, green: 0.04, blue: 0.1),
+                grainIntensity: 0.07, grainScale: 1.3, animationSpeed: 0.4, blurRadius: 0.3, saturation: 1.0, brightness: 1.1, noiseOctaves: 5, flowDistortion: 0.025, liquidEffect: 0.8, enableStatic: true, transitionSpeed: 1.0
+            )
+        case .lavender:
+            return GradientConfiguration(
+                blobs: [
+                    GradientBlob(r: 0.55, g: 0.4, b: 0.75, a: 0.85, position: SIMD2<Float>(0.3, 0.3), radius: 0.5, speed: 0.3, phase: 0.0, orbitRadius: SIMD2<Float>(0.15, 0.12)),
+                    GradientBlob(r: 0.7, g: 0.5, b: 0.7, a: 0.75, position: SIMD2<Float>(0.7, 0.5), radius: 0.45, speed: 0.25, phase: 2.0, orbitRadius: SIMD2<Float>(0.18, 0.15)),
+                    GradientBlob(r: 0.4, g: 0.35, b: 0.65, a: 0.65, position: SIMD2<Float>(0.5, 0.7), radius: 0.4, speed: 0.35, phase: 4.0, orbitRadius: SIMD2<Float>(0.12, 0.18)),
+                    GradientBlob(r: 0.65, g: 0.55, b: 0.8, a: 0.55, position: SIMD2<Float>(0.4, 0.4), radius: 0.5, speed: 0.2, phase: 1.0, orbitRadius: SIMD2<Float>(0.14, 0.14)),
+                ],
+                backgroundColor: Color(red: 0.08, green: 0.07, blue: 0.12),
+                grainIntensity: 0.06, grainScale: 1.2, animationSpeed: 0.35, blurRadius: 0.35, saturation: 0.85, brightness: 1.1, noiseOctaves: 4, flowDistortion: 0.015, liquidEffect: 0.5, enableStatic: true, transitionSpeed: 1.0
+            )
+        case .mint:
+            return GradientConfiguration(
+                blobs: [
+                    GradientBlob(r: 0.3, g: 0.7, b: 0.65, a: 0.85, position: SIMD2<Float>(0.3, 0.3), radius: 0.5, speed: 0.3, phase: 0.0, orbitRadius: SIMD2<Float>(0.15, 0.12)),
+                    GradientBlob(r: 0.45, g: 0.75, b: 0.7, a: 0.75, position: SIMD2<Float>(0.7, 0.4), radius: 0.45, speed: 0.25, phase: 2.0, orbitRadius: SIMD2<Float>(0.12, 0.18)),
+                    GradientBlob(r: 0.25, g: 0.65, b: 0.55, a: 0.65, position: SIMD2<Float>(0.5, 0.7), radius: 0.4, speed: 0.35, phase: 3.5, orbitRadius: SIMD2<Float>(0.18, 0.14)),
+                ],
+                backgroundColor: Color(red: 0.04, green: 0.08, blue: 0.07),
+                grainIntensity: 0.05, grainScale: 1.4, animationSpeed: 0.4, blurRadius: 0.3, saturation: 0.75, brightness: 1.1, noiseOctaves: 4, flowDistortion: 0.012, liquidEffect: 0.4, enableStatic: true, transitionSpeed: 1.0
+            )
+        case .warmGlow:
+            return GradientConfiguration(
+                blobs: [
+                    GradientBlob(r: 0.85, g: 0.65, b: 0.45, a: 0.85, position: SIMD2<Float>(0.4, 0.3), radius: 0.55, speed: 0.25, phase: 0.0, orbitRadius: SIMD2<Float>(0.15, 0.1)),
+                    GradientBlob(r: 0.8, g: 0.55, b: 0.4, a: 0.75, position: SIMD2<Float>(0.6, 0.5), radius: 0.45, speed: 0.3, phase: 1.5, orbitRadius: SIMD2<Float>(0.12, 0.15)),
+                    GradientBlob(r: 0.75, g: 0.7, b: 0.55, a: 0.65, position: SIMD2<Float>(0.3, 0.7), radius: 0.5, speed: 0.2, phase: 3.0, orbitRadius: SIMD2<Float>(0.14, 0.12)),
+                ],
+                backgroundColor: Color(red: 0.12, green: 0.1, blue: 0.08),
+                grainIntensity: 0.05, grainScale: 1.0, animationSpeed: 0.3, blurRadius: 0.35, saturation: 0.75, brightness: 1.12, noiseOctaves: 3, flowDistortion: 0.01, liquidEffect: 0.4, enableStatic: true, transitionSpeed: 1.0
+            )
+        case .midnight:
+            return GradientConfiguration(
+                blobs: [
+                    GradientBlob(r: 0.2, g: 0.15, b: 0.45, a: 0.9, position: SIMD2<Float>(0.3, 0.3), radius: 0.5, speed: 0.2, phase: 0.0, orbitRadius: SIMD2<Float>(0.15, 0.12)),
+                    GradientBlob(r: 0.15, g: 0.2, b: 0.4, a: 0.85, position: SIMD2<Float>(0.7, 0.4), radius: 0.55, speed: 0.25, phase: 2.0, orbitRadius: SIMD2<Float>(0.18, 0.15)),
+                    GradientBlob(r: 0.25, g: 0.15, b: 0.55, a: 0.65, position: SIMD2<Float>(0.5, 0.7), radius: 0.45, speed: 0.3, phase: 4.0, orbitRadius: SIMD2<Float>(0.12, 0.18)),
+                    GradientBlob(r: 0.35, g: 0.25, b: 0.65, a: 0.45, position: SIMD2<Float>(0.2, 0.6), radius: 0.35, speed: 0.15, phase: 1.0, orbitRadius: SIMD2<Float>(0.10, 0.14)),
+                ],
+                backgroundColor: Color(red: 0.02, green: 0.015, blue: 0.05),
+                grainIntensity: 0.12, grainScale: 1.5, animationSpeed: 0.3, blurRadius: 0.3, saturation: 1.1, brightness: 1.0, noiseOctaves: 5, flowDistortion: 0.02, liquidEffect: 0.6, enableStatic: true, transitionSpeed: 1.0
+            )
+        case .peach:
+            return GradientConfiguration(
+                blobs: [
+                    GradientBlob(r: 0.85, g: 0.65, b: 0.6, a: 0.85, position: SIMD2<Float>(0.35, 0.3), radius: 0.5, speed: 0.3, phase: 0.0, orbitRadius: SIMD2<Float>(0.15, 0.12)),
+                    GradientBlob(r: 0.8, g: 0.55, b: 0.65, a: 0.75, position: SIMD2<Float>(0.65, 0.5), radius: 0.45, speed: 0.25, phase: 1.5, orbitRadius: SIMD2<Float>(0.12, 0.15)),
+                    GradientBlob(r: 0.75, g: 0.7, b: 0.65, a: 0.65, position: SIMD2<Float>(0.5, 0.7), radius: 0.4, speed: 0.35, phase: 3.0, orbitRadius: SIMD2<Float>(0.14, 0.10)),
+                ],
+                backgroundColor: Color(red: 0.12, green: 0.08, blue: 0.1),
+                grainIntensity: 0.05, grainScale: 1.0, animationSpeed: 0.35, blurRadius: 0.35, saturation: 0.75, brightness: 1.1, noiseOctaves: 3, flowDistortion: 0.01, liquidEffect: 0.4, enableStatic: true, transitionSpeed: 1.0
+            )
+        case .forest:
+            return GradientConfiguration(
+                blobs: [
+                    GradientBlob(r: 0.15, g: 0.45, b: 0.25, a: 0.85, position: SIMD2<Float>(0.3, 0.3), radius: 0.5, speed: 0.2, phase: 0.0, orbitRadius: SIMD2<Float>(0.15, 0.12)),
+                    GradientBlob(r: 0.25, g: 0.5, b: 0.3, a: 0.75, position: SIMD2<Float>(0.7, 0.4), radius: 0.45, speed: 0.25, phase: 2.0, orbitRadius: SIMD2<Float>(0.18, 0.15)),
+                    GradientBlob(r: 0.1, g: 0.3, b: 0.2, a: 0.65, position: SIMD2<Float>(0.5, 0.7), radius: 0.4, speed: 0.3, phase: 4.0, orbitRadius: SIMD2<Float>(0.12, 0.18)),
+                    GradientBlob(r: 0.2, g: 0.4, b: 0.28, a: 0.55, position: SIMD2<Float>(0.2, 0.6), radius: 0.35, speed: 0.15, phase: 1.0, orbitRadius: SIMD2<Float>(0.10, 0.14)),
+                ],
+                backgroundColor: Color(red: 0.03, green: 0.05, blue: 0.03),
+                grainIntensity: 0.09, grainScale: 1.3, animationSpeed: 0.3, blurRadius: 0.3, saturation: 1.0, brightness: 1.05, noiseOctaves: 5, flowDistortion: 0.02, liquidEffect: 0.6, enableStatic: true, transitionSpeed: 1.0
+            )
+        case .rose:
+            return GradientConfiguration(
+                blobs: [
+                    GradientBlob(r: 0.75, g: 0.35, b: 0.45, a: 0.9, position: SIMD2<Float>(0.3, 0.3), radius: 0.5, speed: 0.3, phase: 0.0, orbitRadius: SIMD2<Float>(0.15, 0.12)),
+                    GradientBlob(r: 0.7, g: 0.42, b: 0.52, a: 0.8, position: SIMD2<Float>(0.7, 0.5), radius: 0.45, speed: 0.25, phase: 2.0, orbitRadius: SIMD2<Float>(0.18, 0.15)),
+                    GradientBlob(r: 0.8, g: 0.5, b: 0.6, a: 0.7, position: SIMD2<Float>(0.5, 0.7), radius: 0.4, speed: 0.35, phase: 4.0, orbitRadius: SIMD2<Float>(0.12, 0.18)),
+                ],
+                backgroundColor: Color(red: 0.1, green: 0.06, blue: 0.08),
+                grainIntensity: 0.03, grainScale: 1.2, animationSpeed: 0.4, blurRadius: 0.3, saturation: 0.85, brightness: 1.1, noiseOctaves: 4, flowDistortion: 0.015, liquidEffect: 0.5, enableStatic: false, transitionSpeed: 1.0
+            )
+        case .sky:
+            return GradientConfiguration(
+                blobs: [
+                    GradientBlob(r: 0.35, g: 0.55, b: 0.85, a: 0.9, position: SIMD2<Float>(0.3, 0.3), radius: 0.55, speed: 0.25, phase: 0.0, orbitRadius: SIMD2<Float>(0.2, 0.15)),
+                    GradientBlob(r: 0.4, g: 0.65, b: 0.85, a: 0.8, position: SIMD2<Float>(0.7, 0.4), radius: 0.45, speed: 0.3, phase: 2.0, orbitRadius: SIMD2<Float>(0.15, 0.2)),
+                    GradientBlob(r: 0.5, g: 0.7, b: 0.8, a: 0.7, position: SIMD2<Float>(0.5, 0.7), radius: 0.5, speed: 0.2, phase: 4.0, orbitRadius: SIMD2<Float>(0.18, 0.12)),
+                ],
+                backgroundColor: Color(red: 0.06, green: 0.1, blue: 0.15),
+                grainIntensity: 0.02, grainScale: 1.5, animationSpeed: 0.35, blurRadius: 0.25, saturation: 0.85, brightness: 1.1, noiseOctaves: 4, flowDistortion: 0.01, liquidEffect: 0.4, enableStatic: false, transitionSpeed: 1.0
+            )
+        case .coral:
+            return GradientConfiguration(
+                blobs: [
+                    GradientBlob(r: 0.85, g: 0.45, b: 0.35, a: 0.9, position: SIMD2<Float>(0.35, 0.3), radius: 0.5, speed: 0.3, phase: 0.0, orbitRadius: SIMD2<Float>(0.15, 0.12)),
+                    GradientBlob(r: 0.8, g: 0.5, b: 0.42, a: 0.8, position: SIMD2<Float>(0.65, 0.5), radius: 0.45, speed: 0.25, phase: 1.5, orbitRadius: SIMD2<Float>(0.12, 0.15)),
+                    GradientBlob(r: 0.75, g: 0.55, b: 0.48, a: 0.7, position: SIMD2<Float>(0.5, 0.7), radius: 0.4, speed: 0.35, phase: 3.0, orbitRadius: SIMD2<Float>(0.14, 0.10)),
+                ],
+                backgroundColor: Color(red: 0.12, green: 0.07, blue: 0.06),
+                grainIntensity: 0.02, grainScale: 1.0, animationSpeed: 0.4, blurRadius: 0.35, saturation: 0.8, brightness: 1.08, noiseOctaves: 3, flowDistortion: 0.01, liquidEffect: 0.4, enableStatic: false, transitionSpeed: 1.0
+            )
+        case .lime:
+            return GradientConfiguration(
+                blobs: [
+                    GradientBlob(r: 0.5, g: 0.75, b: 0.28, a: 0.85, position: SIMD2<Float>(0.3, 0.35), radius: 0.5, speed: 0.3, phase: 0.0, orbitRadius: SIMD2<Float>(0.15, 0.12)),
+                    GradientBlob(r: 0.58, g: 0.78, b: 0.35, a: 0.75, position: SIMD2<Float>(0.7, 0.45), radius: 0.45, speed: 0.25, phase: 2.0, orbitRadius: SIMD2<Float>(0.18, 0.15)),
+                    GradientBlob(r: 0.42, g: 0.7, b: 0.22, a: 0.65, position: SIMD2<Float>(0.5, 0.7), radius: 0.4, speed: 0.35, phase: 4.0, orbitRadius: SIMD2<Float>(0.12, 0.18)),
+                ],
+                backgroundColor: Color(red: 0.06, green: 0.1, blue: 0.04),
+                grainIntensity: 0.02, grainScale: 1.4, animationSpeed: 0.4, blurRadius: 0.3, saturation: 0.75, brightness: 1.1, noiseOctaves: 4, flowDistortion: 0.012, liquidEffect: 0.5, enableStatic: false, transitionSpeed: 1.0
+            )
+        case .berry:
+            return GradientConfiguration(
+                blobs: [
+                    GradientBlob(r: 0.5, g: 0.18, b: 0.68, a: 0.9, position: SIMD2<Float>(0.3, 0.3), radius: 0.5, speed: 0.25, phase: 0.0, orbitRadius: SIMD2<Float>(0.15, 0.12)),
+                    GradientBlob(r: 0.62, g: 0.28, b: 0.78, a: 0.8, position: SIMD2<Float>(0.7, 0.5), radius: 0.45, speed: 0.3, phase: 2.0, orbitRadius: SIMD2<Float>(0.18, 0.15)),
+                    GradientBlob(r: 0.42, g: 0.12, b: 0.6, a: 0.7, position: SIMD2<Float>(0.5, 0.7), radius: 0.4, speed: 0.35, phase: 4.0, orbitRadius: SIMD2<Float>(0.12, 0.18)),
+                ],
+                backgroundColor: Color(red: 0.08, green: 0.05, blue: 0.12),
+                grainIntensity: 0.02, grainScale: 1.2, animationSpeed: 0.35, blurRadius: 0.3, saturation: 0.85, brightness: 1.08, noiseOctaves: 4, flowDistortion: 0.015, liquidEffect: 0.5, enableStatic: false, transitionSpeed: 1.0
+            )
+        case .honey:
+            return GradientConfiguration(
+                blobs: [
+                    GradientBlob(r: 0.85, g: 0.7, b: 0.28, a: 0.9, position: SIMD2<Float>(0.35, 0.3), radius: 0.5, speed: 0.25, phase: 0.0, orbitRadius: SIMD2<Float>(0.15, 0.1)),
+                    GradientBlob(r: 0.8, g: 0.62, b: 0.35, a: 0.8, position: SIMD2<Float>(0.65, 0.5), radius: 0.45, speed: 0.3, phase: 1.5, orbitRadius: SIMD2<Float>(0.12, 0.15)),
+                    GradientBlob(r: 0.78, g: 0.65, b: 0.42, a: 0.7, position: SIMD2<Float>(0.4, 0.7), radius: 0.5, speed: 0.2, phase: 3.0, orbitRadius: SIMD2<Float>(0.14, 0.12)),
+                ],
+                backgroundColor: Color(red: 0.12, green: 0.1, blue: 0.05),
+                grainIntensity: 0.02, grainScale: 1.0, animationSpeed: 0.3, blurRadius: 0.35, saturation: 0.8, brightness: 1.1, noiseOctaves: 3, flowDistortion: 0.01, liquidEffect: 0.4, enableStatic: false, transitionSpeed: 1.0
+            )
+        case .oceanBreeze:
+            return GradientConfiguration(
+                blobs: [
+                    GradientBlob(r: 0.18, g: 0.65, b: 0.75, a: 0.85, position: SIMD2<Float>(0.3, 0.3), radius: 0.55, speed: 0.2, phase: 0.0, orbitRadius: SIMD2<Float>(0.18, 0.12)),
+                    GradientBlob(r: 0.28, g: 0.5, b: 0.68, a: 0.75, position: SIMD2<Float>(0.7, 0.45), radius: 0.45, speed: 0.25, phase: 2.0, orbitRadius: SIMD2<Float>(0.15, 0.18)),
+                    GradientBlob(r: 0.35, g: 0.75, b: 0.72, a: 0.65, position: SIMD2<Float>(0.5, 0.7), radius: 0.4, speed: 0.3, phase: 4.0, orbitRadius: SIMD2<Float>(0.12, 0.16)),
+                ],
+                backgroundColor: Color(red: 0.06, green: 0.1, blue: 0.12),
+                grainIntensity: 0.02, grainScale: 1.3, animationSpeed: 0.35, blurRadius: 0.3, saturation: 0.8, brightness: 1.1, noiseOctaves: 4, flowDistortion: 0.02, liquidEffect: 0.6, enableStatic: false, transitionSpeed: 1.0
+            )
+        case .purpleHaze:
+            return GradientConfiguration(
+                blobs: [
+                    GradientBlob(r: 0.42, g: 0.28, b: 0.68, a: 0.9, position: SIMD2<Float>(0.3, 0.25), radius: 0.5, speed: 0.2, phase: 0.0, orbitRadius: SIMD2<Float>(0.15, 0.12)),
+                    GradientBlob(r: 0.5, g: 0.35, b: 0.78, a: 0.8, position: SIMD2<Float>(0.7, 0.5), radius: 0.45, speed: 0.25, phase: 2.0, orbitRadius: SIMD2<Float>(0.18, 0.15)),
+                    GradientBlob(r: 0.35, g: 0.18, b: 0.6, a: 0.7, position: SIMD2<Float>(0.5, 0.75), radius: 0.4, speed: 0.3, phase: 4.0, orbitRadius: SIMD2<Float>(0.12, 0.18)),
+                ],
+                backgroundColor: Color(red: 0.07, green: 0.06, blue: 0.1),
+                grainIntensity: 0.03, grainScale: 1.2, animationSpeed: 0.3, blurRadius: 0.35, saturation: 0.85, brightness: 1.08, noiseOctaves: 4, flowDistortion: 0.018, liquidEffect: 0.55, enableStatic: false, transitionSpeed: 1.0
+            )
+        case .sunrise:
+            return GradientConfiguration(
+                blobs: [
+                    GradientBlob(r: 0.85, g: 0.45, b: 0.2, a: 0.95, position: SIMD2<Float>(0.3, 0.25), radius: 0.55, speed: 0.2, phase: 0.0, orbitRadius: SIMD2<Float>(0.15, 0.1)),
+                    GradientBlob(r: 0.82, g: 0.58, b: 0.28, a: 0.85, position: SIMD2<Float>(0.6, 0.45), radius: 0.5, speed: 0.25, phase: 1.5, orbitRadius: SIMD2<Float>(0.12, 0.15)),
+                    GradientBlob(r: 0.78, g: 0.35, b: 0.42, a: 0.75, position: SIMD2<Float>(0.4, 0.7), radius: 0.45, speed: 0.3, phase: 3.0, orbitRadius: SIMD2<Float>(0.14, 0.12)),
+                    GradientBlob(r: 0.85, g: 0.65, b: 0.42, a: 0.65, position: SIMD2<Float>(0.75, 0.65), radius: 0.35, speed: 0.35, phase: 4.5, orbitRadius: SIMD2<Float>(0.1, 0.14)),
+                ],
+                backgroundColor: Color(red: 0.12, green: 0.08, blue: 0.05),
+                grainIntensity: 0.02, grainScale: 1.0, animationSpeed: 0.35, blurRadius: 0.3, saturation: 0.85, brightness: 1.1, noiseOctaves: 3, flowDistortion: 0.012, liquidEffect: 0.45, enableStatic: false, transitionSpeed: 1.0
+            )
+        case .denim:
+            return GradientConfiguration(
+                blobs: [
+                    GradientBlob(r: 0.22, g: 0.38, b: 0.62, a: 0.9, position: SIMD2<Float>(0.3, 0.3), radius: 0.5, speed: 0.2, phase: 0.0, orbitRadius: SIMD2<Float>(0.15, 0.12)),
+                    GradientBlob(r: 0.3, g: 0.45, b: 0.72, a: 0.8, position: SIMD2<Float>(0.7, 0.45), radius: 0.45, speed: 0.25, phase: 2.0, orbitRadius: SIMD2<Float>(0.18, 0.15)),
+                    GradientBlob(r: 0.18, g: 0.35, b: 0.58, a: 0.7, position: SIMD2<Float>(0.5, 0.7), radius: 0.4, speed: 0.3, phase: 4.0, orbitRadius: SIMD2<Float>(0.12, 0.18)),
+                ],
+                backgroundColor: Color(red: 0.06, green: 0.08, blue: 0.12),
+                grainIntensity: 0.03, grainScale: 1.4, animationSpeed: 0.3, blurRadius: 0.35, saturation: 0.75, brightness: 1.08, noiseOctaves: 5, flowDistortion: 0.015, liquidEffect: 0.5, enableStatic: false, transitionSpeed: 1.0
+            )
         }
     }
     

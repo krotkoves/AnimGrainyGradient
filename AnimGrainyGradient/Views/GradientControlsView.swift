@@ -7,6 +7,7 @@ struct GradientControlsView: View {
     var body: some View {
         NavigationStack {
             Form {
+                ThemeSection(settings: settings)
                 PresetSection(settings: settings)
                 TransitionModeSection(settings: settings)
                 AnimationSection(settings: settings)
@@ -20,6 +21,26 @@ struct GradientControlsView: View {
                     Button("Done") { dismiss() }
                 }
             }
+        }
+    }
+}
+
+private struct ThemeSection: View {
+    @ObservedObject var settings: GradientSettings
+    
+    var body: some View {
+        Section {
+            Picker("Theme", selection: $settings.selectedTheme) {
+                ForEach(AppTheme.allCases) { theme in
+                    Label(theme.rawValue, systemImage: theme.icon)
+                        .tag(theme)
+                }
+            }
+            .pickerStyle(.segmented)
+        } header: {
+            Text("Appearance")
+        } footer: {
+            Text(settings.selectedTheme == .auto ? "Follows system appearance" : "Manual override")
         }
     }
 }
